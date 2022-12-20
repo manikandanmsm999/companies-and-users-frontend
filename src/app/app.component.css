@@ -1,9 +1,17 @@
 .custom-nav {
   background-color: darkcyan;
+  padding: 5px;
 }
 
 .text-nav {
   color: white;
+  font-size: 20px;
+}
+
+.text-nav-brand {
+  color: white;
+  font-size: 25px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 .active {
