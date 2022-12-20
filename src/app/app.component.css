@@ -1,0 +1,11 @@
+.custom-nav {
+  background-color: darkcyan;
+}
+
+.text-nav {
+  color: white;
+}
+
+.active {
+  color: rgb(221, 203, 203);
+}
