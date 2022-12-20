@@ -1,1 +1,18 @@
-<p>list-companies works!</p>
+<div *ngIf="hasData;else thenBlock">
+    <div class="card" style="widows: 18rem;margin: 10px;display: inline-block;padding:10px;background-color: turquoise;" *ngFor="let company of companies">
+        <img class="card-img-top" src="../assets/company.png" width="50px" height="100px" alt="card image">
+        <div class="card-body">
+            <h5 class="card-title">{{company.companyName==undefined?"Not Mentioned":company.companyName}}</h5>
+            <p class="card-text"><strong>Address : </strong>{{company.companyAddress==undefined?"Address is not mentioned":company.companyAddress}}</p>
+            <button class="btn btn-danger">See more</button>
+        </div>
+    </div>
+</div>
+
+<ng-template #thenBlock>
+    <div class="center-company-list-thenblock">
+        <hr>
+        <h3>No Company is available now :(</h3>
+        <hr>
+    </div>
+</ng-template>

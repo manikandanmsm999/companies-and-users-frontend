@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient,HttpErrorResponse,HttpHeaders} from '@angular/common/http';
-import { Observable } from 'rxjs/dist/types/internal/Observable';
+import { Observable } from 'rxjs';
 import { User } from './User';
 
 @Injectable({
@@ -14,7 +14,7 @@ export class UsersServiceService {
     return this.http.get<User[]>('http://localhost:3030/users/getUsers');
   }
 
-  getUserById(id:String): Observable<User>{
+  getUserById(id:string): Observable<User>{
     return this.http.get<User>(`http://localhost:3030/users/getUserById/${id}`);
   }
 
@@ -33,7 +33,7 @@ export class UsersServiceService {
     return this.http.put<any>('http://localhost:3030/users/deactivateUser',user,{ headers: options });
   }
 
-  deleteUser(id:String):Observable<any>{
+  deleteUser(id:string):Observable<any>{
     const options = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.delete<any>(`http://localhost:3030/users/deleteUser/${id}`);
   }

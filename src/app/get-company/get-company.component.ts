@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { CompaniesServiceService } from '../companies-service.service';
+import { Company } from '../Company';
 
 @Component({
   selector: 'app-get-company',
@@ -6,5 +8,26 @@ import { Component } from '@angular/core';
   styleUrls: ['./get-company.component.css']
 })
 export class GetCompanyComponent {
+  company!:Company;
+  companyId!:string;
+  hasData:boolean=false;
+  onSearch:boolean=false;
 
+  constructor(private companyService:CompaniesServiceService){}
+
+  getCompanyById(id:string){
+    this.companyService.getCompanyById(id).subscribe(
+      (company:Company)=>
+      {
+        this.company=company;
+        if(this.company==null || this.company==undefined){
+          this.hasData=false;
+          this.onSearch=true;
+        }else{
+          this.hasData=true;
+          this.onSearch=true;
+        }
+      }
+    )
+  }
 }

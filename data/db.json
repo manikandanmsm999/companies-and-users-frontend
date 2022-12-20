@@ -1,0 +1,76 @@
+{
+    "getCompanies":[
+        {
+        "companyId":"1",
+        "companyName":"ab1",
+        "companyAddress":"a2 che colony",
+        "coordinates":{
+            "latitude":1,
+            "longitude":2
+        }
+    },
+    {
+        "companyId":"2",
+        "companyName":"ab2",
+        "companyAddress":"a2 che colony",
+        "coordinates":{
+            "latitude":1,
+            "longitude":2
+        }
+    },
+    {
+        "companyId":"3",
+        "companyName":"ab3",
+        "companyAddress":"a2 che colony",
+        "coordinates":{
+            "latitude":1,
+            "longitude":2
+        }
+    },
+    {
+        "companyId":"4",
+        "companyName":"ab4",
+        "companyAddress":"a2 che colony",
+        "coordinates":{
+            "latitude":1,
+            "longitude":2
+        }
+    }
+],
+"1":{
+    "companyId":"1",
+    "companyName":"ab1",
+    "companyAddress":"a2 che colony",
+    "coordinates":{
+        "latitude":1,
+        "longitude":2
+    }
+},
+"2":{
+    "companyId":"2",
+    "companyName":"ab2",
+    "companyAddress":"a2 che colony",
+    "coordinates":{
+        "latitude":1,
+        "longitude":2
+    }
+},
+"3":{
+    "companyId":"3",
+    "companyName":"ab3",
+    "companyAddress":"a2 che colony",
+    "coordinates":{
+        "latitude":1,
+        "longitude":2
+    }
+},
+"4":{
+    "companyId":"4",
+    "companyName":"ab4",
+    "companyAddress":"a2 che colony",
+    "coordinates":{
+        "latitude":1,
+        "longitude":2
+    }
+}
+}

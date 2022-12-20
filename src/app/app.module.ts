@@ -13,6 +13,10 @@ import { CreateCompanyComponent } from './create-company/create-company.componen
 import { UpdateCompanyComponent } from './update-company/update-company.component';
 import { DeleteCompanyComponent } from './delete-company/delete-company.component';
 import { GetCompanyComponent } from './get-company/get-company.component';
+import { CompaniesServiceService } from './companies-service.service';
+import { UsersServiceService } from './users-service.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,9 +34,11 @@ import { GetCompanyComponent } from './get-company/get-company.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [CompaniesServiceService,UsersServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
