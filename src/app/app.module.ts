@@ -8,6 +8,11 @@ import { UsersManagementComponent } from './users-management/users-management.co
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ListCompaniesComponent } from './list-companies/list-companies.component';
+import { CreateCompanyComponent } from './create-company/create-company.component';
+import { UpdateCompanyComponent } from './update-company/update-company.component';
+import { DeleteCompanyComponent } from './delete-company/delete-company.component';
+import { GetCompanyComponent } from './get-company/get-company.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +20,12 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     CompaniesManagementComponent,
     UsersManagementComponent,
     HomeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ListCompaniesComponent,
+    CreateCompanyComponent,
+    UpdateCompanyComponent,
+    DeleteCompanyComponent,
+    GetCompanyComponent
   ],
   imports: [
     BrowserModule,
