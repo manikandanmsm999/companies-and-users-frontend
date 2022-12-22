@@ -21,10 +21,10 @@
 </div>
 
 <ng-template #thenBlock>
-    <div *ngIf="onSearch;else emptyBlock">
+    <div *ngIf="onSearch;else emptyBlock" class="center-company-list-thenblock">
         <div class="center-company-list-thenblock">
             <hr>
-            <h3>No Company exists with the mentioned company id :(</h3>
+            <h3>{{errMsg}}</h3>
             <hr>
         </div>
     </div>

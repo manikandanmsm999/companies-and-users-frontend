@@ -11,6 +11,7 @@ export class ListCompaniesComponent {
   companies!:Company[];
   hasData:boolean=false;
   count:number=0;
+  errMsg!:string;
 
   constructor(private companyService:CompaniesServiceService){}
 
@@ -33,6 +34,10 @@ export class ListCompaniesComponent {
             this.hasData=true;
           }
         }
+      },
+      (err)=>{
+        this.errMsg=err.error.message;
+        this.hasData=false;
       }
     )
   }

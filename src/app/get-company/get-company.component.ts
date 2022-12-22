@@ -12,6 +12,7 @@ export class GetCompanyComponent {
   companyId!:string;
   hasData:boolean=false;
   onSearch:boolean=false;
+  errMsg:string="";
 
   constructor(private companyService:CompaniesServiceService){}
 
@@ -27,6 +28,11 @@ export class GetCompanyComponent {
           this.hasData=true;
           this.onSearch=true;
         }
+      },
+      (err)=>{
+        this.errMsg=err.error.message;
+        this.onSearch=true;
+        this.hasData=false;
       }
     )
   }

@@ -2,9 +2,9 @@ import { Coordinates } from "./Coordinates";
 
 export class Company{
     constructor(
-        public companyId:String,
-        public companyName:String,
-        public companyAddress:String,
+        public companyId:string,
+        public companyName:string,
+        public companyAddress:string,
         public coordinates:Coordinates
     ){}
 }

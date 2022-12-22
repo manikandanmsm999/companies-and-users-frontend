@@ -7,6 +7,7 @@ import {UsersManagementComponent} from './users-management/users-management.comp
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import { ListCompaniesComponent } from './list-companies/list-companies.component';
 import { GetCompanyComponent } from './get-company/get-company.component';
+import { CreateCompanyComponent } from './create-company/create-company.component';
 
 const routes: Routes = [
   {path:'home',component:HomeComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path:'users',component:UsersManagementComponent},
   {path:'companyList',component:ListCompaniesComponent},
   {path:'getCompanyById',component:GetCompanyComponent},
+  {path:'createCompany',component:CreateCompanyComponent},
   {path:'**',component:PageNotFoundComponent}
 ];
 

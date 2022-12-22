@@ -18,5 +18,9 @@ export class CompaniesManagementComponent {
   gotoGetCompanyById(){
     this.router.navigate(['/','getCompanyById']);
   }
+
+  gotocreateCompany(){
+    this.router.navigate(['/','createCompany']);
+  }
   
 }

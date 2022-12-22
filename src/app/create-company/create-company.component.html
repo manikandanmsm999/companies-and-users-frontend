@@ -1,1 +1,49 @@
-<p>create-company works!</p>
+<div style="padding: 10px;" class="container-fluid">
+    <form #companyForm="ngForm" (ngSubmit)="createCompany()">
+    
+        <div class="form-group">
+          <label>Company Name : </label>
+          <input type="text" #name="ngModel" required class="form-control" [class.is-invalid]="name.invalid && name.touched" name="name" [(ngModel)]="company.companyName" placeholder="Enter Name">
+        </div>
+    
+        <div class="form-group">
+          <label>Company Address</label>
+          <input type="text" #address="ngModel" required class="form-control" [class.is-invalid]="address.invalid && address.touched" name="address" [(ngModel)]="company.companyAddress" placeholder="Enter Address">
+        </div>
+    
+        <div class="form-group">
+          <label>Coordinates</label>
+          <input type="text" #latitude="ngModel" required class="form-control" [class.is-invalid]="latitude.invalid && latitude.touched" name="latitude" [(ngModel)]="lat" placeholder="Latitude">
+          <input type="text" #longitude="ngModel" required class="form-control" [class.is-invalid]="longitude.invalid && longitude.touched" name="latitude" [(ngModel)]="lon" placeholder="Longitude">
+          <p *ngIf="checkNaN" style="color: red;">Please enter digits</p>
+        </div>
+    
+        <button class="btn btn-primary" [disabled]="companyForm.form.invalid" type="submit">Create</button>
+    
+      </form>
+</div>
+
+
+<div *ngIf="success;else thenBlock">
+    <div class="center-result">
+        <hr>
+        <h3>{{succMsg}}</h3>
+        <hr>
+    </div>
+</div>
+
+<ng-template #thenBlock>
+    <div *ngIf="onSearch;else emptyBlock">
+        <div class="center-result">
+            <hr>
+            <h3>{{errMsg}}</h3>
+            <hr>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #emptyBlock>
+    <div>
+
+    </div>
+</ng-template>

@@ -17,6 +17,7 @@ import { CompaniesServiceService } from './companies-service.service';
 import { UsersServiceService } from './users-service.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { DisplayCompanyComponent } from './display-company/display-company.component';
 
 @NgModule({
   declarations: [
@@ -29,14 +30,15 @@ import { FormsModule } from '@angular/forms';
     CreateCompanyComponent,
     UpdateCompanyComponent,
     DeleteCompanyComponent,
-    GetCompanyComponent
+    GetCompanyComponent,
+    DisplayCompanyComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [CompaniesServiceService,UsersServiceService],
   bootstrap: [AppComponent]

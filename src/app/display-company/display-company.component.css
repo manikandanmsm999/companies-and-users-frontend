@@ -1,7 +1,11 @@
-.center-result {
+.center-display-company {
   margin: auto;
   margin-top: 20px;
   width: 80%;
   padding: 10%;
   background-color: turquoise;
+}
+
+agm-map {
+  height: 400px;
 }
