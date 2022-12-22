@@ -10,6 +10,13 @@ import { GetCompanyComponent } from './get-company/get-company.component';
 import { CreateCompanyComponent } from './create-company/create-company.component';
 import { AddUserToCompanyComponent } from './add-user-to-company/add-user-to-company.component';
 import { CreateUserComponent } from './create-user/create-user.component';
+import { ListUsersComponent } from './list-users/list-users.component';
+import { GetUserComponent } from './get-user/get-user.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
+import { DeleteUserComponent } from './delete-user/delete-user.component';
+import { DeactivateUserComponent } from './deactivate-user/deactivate-user.component';
+import { RemoveUserFromCompanyComponent } from './remove-user-from-company/remove-user-from-company.component';
+import { DeleteCompanyComponent } from './delete-company/delete-company.component';
 
 const routes: Routes = [
   {path:'home',component:HomeComponent},
@@ -21,6 +28,13 @@ const routes: Routes = [
   {path:'createCompany',component:CreateCompanyComponent},
   {path:'addUserToCompany',component:AddUserToCompanyComponent},
   {path:'createUser',component:CreateUserComponent},
+  {path:'userList',component:ListUsersComponent},
+  {path:'getUserById',component:GetUserComponent},
+  {path:'updateUser',component:UpdateUserComponent},
+  {path:'deleteUser',component:DeleteUserComponent},
+  {path:'deactivateUser',component:DeactivateUserComponent},
+  {path:'removeUserFromCompany',component:RemoveUserFromCompanyComponent},
+  {path:'deleteCompany',component:DeleteCompanyComponent},
   {path:'**',component:PageNotFoundComponent}
 ];
 

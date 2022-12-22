@@ -26,5 +26,13 @@ export class CompaniesManagementComponent {
   gotoAddUserToCompany(){
     this.router.navigate(['/','addUserToCompany']);
   }
+
+  gotoRemoveUserFromCompany(){
+    this.router.navigate(['/','removeUserFromCompany']);
+  }
+
+  gotoDeleteCompany(){
+    this.router.navigate(['/','deleteCompany']);
+  }
   
 }

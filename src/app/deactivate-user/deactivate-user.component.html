@@ -1,1 +1,34 @@
-<p>deactivate-user works!</p>
+<div style="padding: 10px;" class="container-fluid">
+    <form class="form-inline" #userIdForm="ngForm" (ngSubmit)="deactivateUser(userId)">
+        <div style="margin: 10px;display: inline-flex;">
+            <input type="text" #id="ngModel" required class="form-control" [class.is-invalid]="id.invalid && id.touched" name="id" [(ngModel)]="userId" placeholder="Search with user Id" style="width: 200px;">
+            <button class="btn btn-primary" style="margin-left: 10px;" type="submit">Submit</button>
+        </div>
+        
+    </form>
+</div>
+
+
+<div *ngIf="success;else thenBlock">
+    <div class="center-result">
+        <hr>
+        <h3>{{succMsg}}</h3>
+        <hr>
+    </div>
+</div>
+
+<ng-template #thenBlock>
+    <div *ngIf="onSearch;else emptyBlock">
+        <div class="center-result">
+            <hr>
+            <h3>{{errMsg}}</h3>
+            <hr>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #emptyBlock>
+    <div>
+
+    </div>
+</ng-template>

@@ -30,6 +30,10 @@ export class CompaniesServiceService {
     return this.http.post<any>('http://localhost:3030/companies/addUserToCompany',companyAndUser,{ headers: options }).pipe(catchError(err=>{throw err}));
   }
 
+  removeUserFromCompany(companyId:string,userId:string):Observable<any>{
+    return this.http.delete<any>(`http://localhost:3030/companies/removeUserFromCompany/${companyId}/${userId}`).pipe(catchError(err=>{throw err}));
+  }
+
   updateCompany(company:Company):Observable<any>{
     const options = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.put<any>('http://localhost:3030/companies/updateCompany',company,{ headers: options });

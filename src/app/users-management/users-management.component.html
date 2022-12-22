@@ -5,11 +5,11 @@
         <tbody>
           <tr>
             <td>List users</td>
-            <td><button type="button" class="btn btn-danger">Click</button></td>
+            <td><button type="button" class="btn btn-danger" (click)="gotoUsersList()">Click</button></td>
           </tr>
           <tr>
             <td>Get a specific user by ID</td>
-            <td><button type="button" class="btn btn-danger">Click</button></td>
+            <td><button type="button" class="btn btn-danger" (click)="gotoGetUserById()">Click</button></td>
           </tr>
           <tr>
             <td>Create a user</td>
@@ -17,15 +17,15 @@
           </tr>
           <tr>
             <td>Update a user</td>
-            <td><button type="button" class="btn btn-danger">Click</button></td>
+            <td><button type="button" class="btn btn-danger" (click)="gotoUpdateUser()">Click</button></td>
           </tr>
           <tr>
             <td>Deactivate a user</td>
-            <td><button type="button" class="btn btn-danger">Click</button></td>
+            <td><button type="button" class="btn btn-danger" (click)="gotoDeactivateUser()">Click</button></td>
           </tr>
           <tr>
             <td>Delete a user</td>
-            <td><button type="button" class="btn btn-danger">Click</button></td>
+            <td><button type="button" class="btn btn-danger" (click)="gotoDeleteUser()">Click</button></td>
           </tr>
         </tbody>
       </table>
