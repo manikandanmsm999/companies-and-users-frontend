@@ -1,8 +1,9 @@
+<h3 style="color: darkcyan;margin-top: 10px;margin-bottom: 10px;">Get the required User using User Id</h3>
 <div style="padding: 10px;" class="container-fluid">
     <form class="form-inline" #userIdForm="ngForm" (ngSubmit)="getUserById(userId)">
         <div style="margin: 10px;display: inline-flex;">
-            <input type="text" #id="ngModel" required class="form-control" [class.is-invalid]="id.invalid && id.touched" name="id" [(ngModel)]="userId" placeholder="Search with user Id" style="width: 200px;">
-            <button class="btn btn-primary" style="margin-left: 10px;" type="submit">Submit</button>
+            <input type="text" #id="ngModel" required class="form-control" [class.is-invalid]="id.invalid && id.touched" name="id" [(ngModel)]="userId" placeholder="Search with user Id" style="width: 300px;">
+            <button class="btn btn-primary" style="margin-left: 10px;" type="submit">Get User</button>
         </div>
         
     </form>

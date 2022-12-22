@@ -1,8 +1,9 @@
+<h3 style="color: darkcyan;margin-top: 10px;margin-bottom: 10px;">Delete the required Company using Company Id</h3>
 <div style="padding: 10px;" class="container-fluid">
     <form class="form-inline" #userIdForm="ngForm" (ngSubmit)="deleteCompanyById(companyId)">
         <div style="margin: 10px;display: inline-flex;">
-            <input type="text" #id="ngModel" required class="form-control" [class.is-invalid]="id.invalid && id.touched" name="id" [(ngModel)]="companyId" placeholder="Search with Company Id" style="width: 200px;">
-            <button class="btn btn-primary" style="margin-left: 10px;" type="submit">Submit</button>
+            <input type="text" #id="ngModel" required class="form-control" [class.is-invalid]="id.invalid && id.touched" name="id" [(ngModel)]="companyId" placeholder="Delete with Company Id" style="width: 300px;">
+            <button class="btn btn-primary" style="margin-left: 10px;" type="submit">Delete Company</button>
         </div>
         
     </form>

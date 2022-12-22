@@ -1,15 +1,17 @@
+<h3 style="color: darkcyan;margin-top: 10px;margin-bottom: 10px;">Use the below form to add User to Company</h3>
 <div style="padding: 10px;" class="container-fluid">
     <form #companyUserForm="ngForm" (ngSubmit)="addUserToCompanyCompany()">
     
         <div class="form-group">
-            <label>Company Id : </label>
-            <input type="text" #cid="ngModel" required class="form-control" [class.is-invalid]="cid.invalid && cid.touched" name="cid" [(ngModel)]="companyAndUser.companyId" placeholder="Enter Company Id">
+            <label>Company Id</label>
+            <input type="text" #cid="ngModel" required class="form-control" [class.is-invalid]="cid.invalid && cid.touched" name="cid" [(ngModel)]="companyAndUser.companyId" placeholder="Enter Company Id" style="width: 800px;">
           </div>
+          <br>
         <div class="form-group">
-          <label>User Id : </label>
-          <input type="text" #uid="ngModel" required class="form-control" [class.is-invalid]="uid.invalid && uid.touched" name="uid" [(ngModel)]="companyAndUser.userId" placeholder="Enter User Id">
+          <label>User Id</label>
+          <input type="text" #uid="ngModel" required class="form-control" [class.is-invalid]="uid.invalid && uid.touched" name="uid" [(ngModel)]="companyAndUser.userId" placeholder="Enter User Id" style="width: 800px;">
         </div>
-    
+        <br>
         <button class="btn btn-primary" [disabled]="companyUserForm.form.invalid" type="submit">Add User To Company</button>
     
       </form>
