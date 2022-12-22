@@ -18,6 +18,15 @@ import { UsersServiceService } from './users-service.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { DisplayCompanyComponent } from './display-company/display-company.component';
+import { AddUserToCompanyComponent } from './add-user-to-company/add-user-to-company.component';
+import { RemoveUserFromCompanyComponent } from './remove-user-from-company/remove-user-from-company.component';
+import { ListUsersComponent } from './list-users/list-users.component';
+import { GetUserComponent } from './get-user/get-user.component';
+import { CreateUserComponent } from './create-user/create-user.component';
+import { DeleteUserComponent } from './delete-user/delete-user.component';
+import { DisplayUserComponent } from './display-user/display-user.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
+import { DeactivateUserComponent } from './deactivate-user/deactivate-user.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +40,16 @@ import { DisplayCompanyComponent } from './display-company/display-company.compo
     UpdateCompanyComponent,
     DeleteCompanyComponent,
     GetCompanyComponent,
-    DisplayCompanyComponent
+    DisplayCompanyComponent,
+    AddUserToCompanyComponent,
+    RemoveUserFromCompanyComponent,
+    ListUsersComponent,
+    GetUserComponent,
+    CreateUserComponent,
+    DeleteUserComponent,
+    DisplayUserComponent,
+    UpdateUserComponent,
+    DeactivateUserComponent
   ],
   imports: [
     BrowserModule,

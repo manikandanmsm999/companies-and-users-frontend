@@ -1,0 +1,41 @@
+<div style="padding: 10px;" class="container-fluid">
+    <form #companyUserForm="ngForm" (ngSubmit)="addUserToCompanyCompany()">
+    
+        <div class="form-group">
+            <label>Company Id : </label>
+            <input type="text" #cid="ngModel" required class="form-control" [class.is-invalid]="cid.invalid && cid.touched" name="cid" [(ngModel)]="companyAndUser.companyId" placeholder="Enter Company Id">
+          </div>
+        <div class="form-group">
+          <label>User Id : </label>
+          <input type="text" #uid="ngModel" required class="form-control" [class.is-invalid]="uid.invalid && uid.touched" name="uid" [(ngModel)]="companyAndUser.userId" placeholder="Enter User Id">
+        </div>
+    
+        <button class="btn btn-primary" [disabled]="companyUserForm.form.invalid" type="submit">Add User To Company</button>
+    
+      </form>
+</div>
+
+
+<div *ngIf="added;else thenBlock">
+    <div class="center-result">
+        <hr>
+        <h3>{{succMsg}}</h3>
+        <hr>
+    </div>
+</div>
+
+<ng-template #thenBlock>
+    <div *ngIf="onSearch;else emptyBlock">
+        <div class="center-result">
+            <hr>
+            <h3>{{errMsg}}</h3>
+            <hr>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #emptyBlock>
+    <div>
+
+    </div>
+</ng-template>

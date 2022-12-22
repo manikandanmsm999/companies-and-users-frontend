@@ -1,0 +1,58 @@
+<div style="padding: 10px;" class="container-fluid">
+    <form #userForm="ngForm" (ngSubmit)="createUser()">
+    
+        <div class="form-group">
+          <label>First Name : </label>
+          <input type="text" #fname="ngModel" required class="form-control" [class.is-invalid]="fname.invalid && fname.touched" name="fname" [(ngModel)]="user.firstName" placeholder="Enter First Name">
+        </div>
+
+        <div class="form-group">
+            <label>Last Name : </label>
+            <input type="text" #lname="ngModel" required class="form-control" [class.is-invalid]="lname.invalid && lname.touched" name="lname" [(ngModel)]="user.lastName" placeholder="Enter Last Name">
+        </div>
+
+        <div class="form-group">
+            <label>Email : </label>
+            <input type="email" #email="ngModel" required class="form-control" [class.is-invalid]="email.invalid && email.touched" name="email" [(ngModel)]="user.email" placeholder="Enter Email">
+        </div>
+
+        <div class="form-group">
+            <label>Designation : </label>
+            <input type="text" #designation="ngModel" required class="form-control" [class.is-invalid]="designation.invalid && designation.touched" name="designation" [(ngModel)]="user.designation" placeholder="Enter Designation">
+        </div>
+
+        <div class="form-group">
+            <label>Date Of Birth : </label>
+            <input type="text" #dob="ngModel" required class="form-control" [class.is-invalid]="dob.invalid && dob.touched" name="dob" [(ngModel)]="user.dob" placeholder="yyyy-mm-dd">
+        </div>
+
+    
+        <button class="btn btn-primary" [disabled]="userForm.form.invalid" type="submit">Create</button>
+    
+      </form>
+</div>
+
+
+<div *ngIf="success;else thenBlock">
+    <div class="center-result">
+        <hr>
+        <h3>{{succMsg}}</h3>
+        <hr>
+    </div>
+</div>
+
+<ng-template #thenBlock>
+    <div *ngIf="onSearch;else emptyBlock">
+        <div class="center-result">
+            <hr>
+            <h3>{{errMsg}}</h3>
+            <hr>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #emptyBlock>
+    <div>
+
+    </div>
+</ng-template>

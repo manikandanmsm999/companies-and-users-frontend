@@ -22,5 +22,9 @@ export class CompaniesManagementComponent {
   gotocreateCompany(){
     this.router.navigate(['/','createCompany']);
   }
+
+  gotoAddUserToCompany(){
+    this.router.navigate(['/','addUserToCompany']);
+  }
   
 }

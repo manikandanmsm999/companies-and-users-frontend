@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-users-management',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class UsersManagementComponent {
 
+  constructor(private router:Router){}
+  
+  gotoCreateUser(){
+    this.router.navigate(['/','createUser']);
+  }
 }
