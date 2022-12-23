@@ -3,27 +3,23 @@
     <form class="form-inline" #userIdForm="ngForm" (ngSubmit)="deleteCompanyById(companyId)">
         <div style="margin: 10px;display: inline-flex;">
             <input type="text" #id="ngModel" required class="form-control" [class.is-invalid]="id.invalid && id.touched" name="id" [(ngModel)]="companyId" placeholder="Delete with Company Id" style="width: 300px;">
-            <button class="btn btn-primary" style="margin-left: 10px;" type="submit">Delete Company</button>
+            <button class="btn btn-primary" [disabled]="userIdForm.form.invalid" style="margin-left: 10px;" type="submit">Delete Company</button>
         </div>
         
     </form>
 </div>
 
 
-<div *ngIf="success;else thenBlock">
-    <div class="center-result">
-        <hr>
-        <h3>{{succMsg}}</h3>
-        <hr>
+<div *ngIf="success;else thenBlock" style="margin-top: 10px;margin-left: 20px;color: green;">
+    <div>
+        <h5>{{succMsg}}</h5>
     </div>
 </div>
 
 <ng-template #thenBlock>
-    <div *ngIf="onSearch;else emptyBlock">
-        <div class="center-result">
-            <hr>
-            <h3>{{errMsg}}</h3>
-            <hr>
+    <div *ngIf="onSearch;else emptyBlock" style="margin-top: 10px;margin-left: 20px;color: red;">
+        <div>
+            <h5>{{errMsg}}</h5>
         </div>
     </div>
 </ng-template>

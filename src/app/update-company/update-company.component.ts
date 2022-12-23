@@ -11,7 +11,7 @@ import { LooseObject } from '../LooseObject';
   styleUrls: ['./update-company.component.css']
 })
 export class UpdateCompanyComponent {
-  coord:Coordinates=new Coordinates(0,0);
+  coord:Coordinates=new Coordinates(400,400);
   company:Company=new Company("","","",this.coord);
   sendingObj:LooseObject ={};
   senderCoordinates:LooseCoordinates={};
@@ -59,7 +59,7 @@ export class UpdateCompanyComponent {
       this.sendingObj['companyAddress']=this.company.companyAddress;
     }
 
-    if(this.company.coordinates.longitude==0 || this.company.coordinates.latitude==0){
+    if(this.company.coordinates.longitude==400 || this.company.coordinates.latitude==400){
       this.senderCoordinates['latitude']=null;
       this.senderCoordinates['longitude']=null;
       this.sendingObj['coordinates']=this.senderCoordinates;

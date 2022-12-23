@@ -1,7 +1,7 @@
 <h3 style="color: darkcyan;margin-top: 10px;margin-bottom: 10px;">Below is/are the Users Currently registered</h3>
+<hr>
 <div *ngIf="hasData;else thenBlock">
     <div class="card" style="overflow: auto;widows: 18rem;margin: 10px;display: inline-block;padding:10px;background-color: turquoise;" *ngFor="let user of users">
-        <img class="card-img-top" src="../assets/user.png" width="80px" height="300px" alt="card image">
         <div class="card-body" style="height: 300px;width: 350px;">
             <p class="card-title"><strong>User Id : </strong>{{user.userId==undefined?"Not Mentioned":user.userId}}</p>
             <p class="card-title"><strong>First Name : </strong>{{user.firstName==undefined?"Not Mentioned":user.firstName}}</p>
@@ -16,9 +16,9 @@
 </div>
 
 <ng-template #thenBlock>
-    <div class="center-user-list-thenblock">
-        <hr>
-        <h3>{{errMsg}}</h3>
-        <hr>
+    <div style="margin-top: 10px;margin-left: 10px;color: green;">
+        <div>
+            <h5>{{errMsg}}</h5>
+        </div>
     </div>
 </ng-template>

@@ -1,4 +1,5 @@
 <h3 style="color: darkcyan;margin-top: 10px;margin-bottom: 10px;">Below is/are the Companies Currently registered</h3>
+<hr>
 <div *ngIf="hasData;else thenBlock">
     <div class="card" style="overflow: auto;widows: 18rem;margin: 10px;display: inline-block;padding:10px;background-color: turquoise;" *ngFor="let company of companies">
         <img class="card-img-top" src="../assets/company.png" width="50px" height="100px" alt="card image">
@@ -14,9 +15,9 @@
 </div>
 
 <ng-template #thenBlock>
-    <div class="center-company-list-thenblock">
-        <hr>
-        <h3>{{errMsg}}</h3>
-        <hr>
+    <div style="margin-top: 10px;margin-left: 10px;color: green;">
+        <div>
+            <h5>{{errMsg}}</h5>
+        </div>
     </div>
 </ng-template>

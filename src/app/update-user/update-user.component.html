@@ -45,20 +45,16 @@
 </div>
 
 
-<div *ngIf="success;else thenBlock">
-    <div class="center-result">
-        <hr>
-        <h3>{{succMsg}}</h3>
-        <hr>
+<div *ngIf="success;else thenBlock" style="margin-top: 10px;margin-left: 10px;color: green;">
+    <div>
+        <h5>{{succMsg}}</h5>
     </div>
 </div>
 
 <ng-template #thenBlock>
-    <div *ngIf="onSearch;else emptyBlock">
-        <div class="center-result">
-            <hr>
-            <h3>{{errMsg}}</h3>
-            <hr>
+    <div *ngIf="onSearch;else emptyBlock" style="margin-top: 10px;margin-left: 10px;color: red;">
+        <div>
+            <h5>{{errMsg}}</h5>
         </div>
     </div>
 </ng-template>
