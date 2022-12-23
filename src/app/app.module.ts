@@ -26,6 +26,7 @@ import { CreateUserComponent } from './create-user/create-user.component';
 import { DeleteUserComponent } from './delete-user/delete-user.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { DeactivateUserComponent } from './deactivate-user/deactivate-user.component';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { DeactivateUserComponent } from './deactivate-user/deactivate-user.compo
     NgbModule,
     HttpClientModule,
     FormsModule,
+    GoogleMapsModule
   ],
   providers: [CompaniesServiceService,UsersServiceService],
   bootstrap: [AppComponent]

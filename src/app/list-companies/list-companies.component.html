@@ -2,10 +2,13 @@
 <div *ngIf="hasData;else thenBlock">
     <div class="card" style="overflow: auto;widows: 18rem;margin: 10px;display: inline-block;padding:10px;background-color: turquoise;" *ngFor="let company of companies">
         <img class="card-img-top" src="../assets/company.png" width="50px" height="100px" alt="card image">
-        <div class="card-body" style="height: 200px;width: 200px;">
-            <h5 class="card-title">{{company.companyName==undefined?"Not Mentioned":company.companyName}}</h5>
-            <p class="card-text"><strong>Address : </strong>{{company.companyAddress==undefined?"Address is not mentioned":company.companyAddress}}</p>
-            <button class="btn btn-danger" (click)="gotoDisplayToCompany(company.companyId)">See more</button>
+        <div class="card-body" style="height: 250px;width: 250px;">
+            <h5><strong>Company Name :</strong></h5>
+            <h6 class="card-text">{{company.companyName==undefined?"Not Mentioned":company.companyName}}</h6>
+            <h5><strong>Company Address :</strong></h5>
+            <h6 class="card-text">{{company.companyAddress==undefined?"Address is not mentioned":company.companyAddress}}</h6>
+            <br>
+            <button class="btn btn-danger" (click)="gotoDisplayToCompany(company.companyId)">Get more details</button>
         </div>
     </div>
 </div>

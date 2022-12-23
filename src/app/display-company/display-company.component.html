@@ -12,6 +12,15 @@
     <h5><Strong>Coordinates : </Strong>Latitude : {{company.coordinates.latitude==undefined?"Latitude is not mentioned":company.coordinates.latitude}} || Longitude : {{company.coordinates.longitude==undefined?"Latitude is not mentioned":company.coordinates.longitude}}</h5>
     <br>
     <hr>
+    <google-map height="400px"
+            width="750px"
+            [center]="center"
+            [zoom]="zoom"
+            (mapClick)="moveMap($event)"
+            (mapMousemove)="move($event)">
+    </google-map>
+    <div>Latitude: {{display?.lat}}</div>
+    <div>Longitude: {{display?.lng}}</div>
 
 </div>
 

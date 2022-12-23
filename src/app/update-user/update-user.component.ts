@@ -21,20 +21,39 @@ export class UpdateUserComponent {
 
   updateUser(){
     this.sendingObj['userId']=this.user.userId;
-    if(this.user.firstName=""){
+    if(this.user.firstName==""){
       this.sendingObj['firstName']=null;
     }
-    if(this.user.lastName=""){
+    else{
+      this.sendingObj['firstName']=this.user.firstName;
+    }
+
+    if(this.user.lastName==""){
       this.sendingObj['lastName']=null;
     }
-    if(this.user.email=""){
+    else{
+      this.sendingObj['lastName']=this.user.lastName;
+    }
+
+    if(this.user.email==""){
       this.sendingObj['email']=null;
     }
-    if(this.user.designation=""){
+    else{
+      this.sendingObj['email']=this.user.email;
+    }
+
+    if(this.user.designation==""){
       this.sendingObj['designation']=null;
     }
-    if(this.user.dob=""){
+    else{
+      this.sendingObj['designation']=this.user.designation;
+    }
+
+    if(this.user.dob==""){
       this.sendingObj['dob']=null;
+    }
+    else{
+      this.sendingObj['dob']=this.user.dob;
     }
     this.userService.updateUser(this.sendingObj).subscribe(
       (data:any)=>{
