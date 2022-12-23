@@ -24,7 +24,6 @@ import { ListUsersComponent } from './list-users/list-users.component';
 import { GetUserComponent } from './get-user/get-user.component';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { DeleteUserComponent } from './delete-user/delete-user.component';
-import { DisplayUserComponent } from './display-user/display-user.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { DeactivateUserComponent } from './deactivate-user/deactivate-user.component';
 
@@ -47,7 +46,6 @@ import { DeactivateUserComponent } from './deactivate-user/deactivate-user.compo
     GetUserComponent,
     CreateUserComponent,
     DeleteUserComponent,
-    DisplayUserComponent,
     UpdateUserComponent,
     DeactivateUserComponent
   ],

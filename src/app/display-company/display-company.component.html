@@ -1,17 +1,21 @@
-<div class="center-display-company">
-    <h2>Company Details</h2>
+<h3 style="color: darkcyan;margin-top: 10px;margin-bottom: 10px;">View full details of the Company</h3>
+<div *ngIf="success; else thenBlock"class="center-display-company">
+    <h5><Strong>Company Id : </Strong>{{company.companyId==undefined?"Id is not mentioned":company.companyId}}</h5>
     <br>
     <hr>
-    <br>
-    <h3><Strong>Company Id : </Strong>{{company.companyId==undefined?"Id is not mentioned":company.companyId}}</h3>
-    <br>
-    <hr>
-    <h3><Strong>Company Name : </Strong>{{company.companyName==undefined?"Name is not mentioned":company.companyName}}</h3>
+    <h5><Strong>Company Name : </Strong>{{company.companyName==undefined?"Name is not mentioned":company.companyName}}</h5>
     <br>
     <hr>
-    <h3><Strong>Company Address : </Strong>{{company.companyAddress==undefined?"Address is not mentioned":company.companyAddress}}</h3>
+    <h5><Strong>Company Address : </Strong>{{company.companyAddress==undefined?"Address is not mentioned":company.companyAddress}}</h5>
     <br>
     <hr>
-    
+    <h5><Strong>Coordinates : </Strong>Latitude : {{company.coordinates.latitude==undefined?"Latitude is not mentioned":company.coordinates.latitude}} || Longitude : {{company.coordinates.longitude==undefined?"Latitude is not mentioned":company.coordinates.longitude}}</h5>
+    <br>
+    <hr>
 
 </div>
+
+<ng-template #thenBlock>
+    <div>
+    </div>
+</ng-template>

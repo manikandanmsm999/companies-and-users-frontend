@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { CompaniesServiceService } from '../companies-service.service';
 import { Company } from '../Company';
 
@@ -9,11 +10,12 @@ import { Company } from '../Company';
 })
 export class ListCompaniesComponent {
   companies!:Company[];
+  
   hasData:boolean=false;
   count:number=0;
   errMsg!:string;
 
-  constructor(private companyService:CompaniesServiceService){}
+  constructor(private router:Router,private companyService:CompaniesServiceService){}
 
   getCompaniesListOnPageLoad(){
     this.companyService.getCompaniesList().subscribe(
@@ -40,6 +42,10 @@ export class ListCompaniesComponent {
         this.hasData=false;
       }
     )
+  }
+
+  gotoDisplayToCompany(companyId:string){
+    this.router.navigate(['/displayCompany',companyId]);
   }
 
   ngOnInit():void{
