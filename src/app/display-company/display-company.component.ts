@@ -14,19 +14,11 @@ export class DisplayCompanyComponent {
 
   display : any;
   center: google.maps.LatLngLiteral = {lat: 0, lng: 0};
-  zoom = 1;
+  zoom = 2;
+  markerOptions: google.maps.MarkerOptions = {draggable: false};
 
   constructor(private router:ActivatedRoute,private companyService:CompaniesServiceService){}
 
-  moveMap(event: google.maps.MapMouseEvent) {
-    if(event.latLng!= null)
-    this.center = (event.latLng.toJSON());
-  }
-
-  move(event: google.maps.MapMouseEvent) {
-    if(event.latLng != null)
-    this.display = event.latLng.toJSON();
-  }
   ngOnInit():void{
     this.router.params.subscribe((params)=>{
       this.companyService.getCompanyById(params['companyId']).subscribe(
@@ -34,6 +26,7 @@ export class DisplayCompanyComponent {
           this.company=company;
           this.center.lat=company.coordinates.latitude;
           this.center.lng=company.coordinates.longitude;
+
           this.success=true;
         },
         (err:any)=>{

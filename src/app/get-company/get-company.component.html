@@ -16,7 +16,7 @@
         <div class="card-body">
             <h5 class="card-title">{{company.companyName==undefined?"Not Mentioned":company.companyName}}</h5>
             <p class="card-text"><strong>Address : </strong>{{company.companyAddress==undefined?"Address is not mentioned":company.companyAddress}}</p>
-            <button class="btn btn-danger">See more</button>
+            <button class="btn btn-danger" (click)="gotoDisplayToCompany(company.companyId)">See more</button>
         </div>
     </div>
 </div>

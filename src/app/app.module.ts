@@ -62,3 +62,8 @@ import { GoogleMapsModule } from '@angular/google-maps';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+// for map-> https://github.com/ankush1802/Angular14GoogleMaps
+//api key is mentioned in index.html file inside script tag
+//npm install @angular/google-maps --save

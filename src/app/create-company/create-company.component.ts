@@ -10,40 +10,49 @@ import { Coordinates } from '../Coordinates';
   styleUrls: ['./create-company.component.css']
 })
 export class CreateCompanyComponent {
-  coord:Coordinates=new Coordinates(0,0);
+  coord:Coordinates=new Coordinates(14.0048,77.9110);
   company:Company=new Company("1","","",this.coord);
   success:boolean=false;
   onSearch:boolean=false;
   errMsg:string="";
   succMsg:string="";
-  lat:string="";
-  lon:string="";
-  checkNaN:boolean=false;
+  map:boolean=false;
+  display : any;
+  center: google.maps.LatLngLiteral = {lat: this.company.coordinates.latitude, lng: this.company.coordinates.longitude};
+  zoom = 2;
+  markerOptions: google.maps.MarkerOptions = {draggable: false};
+
 
   constructor(private companyService:CompaniesServiceService){}
 
-  createCompany(){
-    if(true){
-      this.company.coordinates.latitude=+(this.lat);
-      this.company.coordinates.longitude=+(this.lon);
-      if(this.company.coordinates.latitude && this.company.coordinates.longitude && this.company.coordinates.latitude>=0 && this.company.coordinates.longitude>=0){
-        this.checkNaN=false;
-        this.companyService.createCompany(this.company).subscribe(
-          (data:any)=>{
-            this.succMsg=data.message;
-            this.onSearch=true;
-            this.success=true;
-          },
-          (err)=>{
-            this.errMsg=err.error.message;
-            this.onSearch=true;
-            this.success=false;
-          }
-        )
-      }
-      else{
-        this.checkNaN=true;
-      }
+  showMap(){
+    this.map=true;
+  }
+
+  hideMap(){
+    this.map=false;
+  }
+
+  captureClick(event: google.maps.MapMouseEvent){
+    if(event.latLng!= null){
+      this.center = (event.latLng.toJSON());
+      this.company.coordinates.latitude=this.center.lat;
+      this.company.coordinates.longitude=this.center.lng;
     }
+  }
+
+  createCompany(){
+    this.companyService.createCompany(this.company).subscribe(
+      (data:any)=>{
+        this.succMsg=data.message;
+        this.onSearch=true;
+        this.success=true;
+      },
+      (err)=>{
+        this.errMsg=err.error.message;
+        this.onSearch=true;
+        this.success=false;
+      }
+    )
   }
 }

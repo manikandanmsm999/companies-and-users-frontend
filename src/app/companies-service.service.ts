@@ -4,6 +4,7 @@ import { Company } from './Company';
 import {CompanyAndUser} from './CompanyAndUser';
 import { Observable, throwError } from 'rxjs';
 import {catchError, tap} from 'rxjs/operators';
+import { LooseObject } from './LooseObject';
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +35,7 @@ export class CompaniesServiceService {
     return this.http.delete<any>(`http://localhost:3030/companies/removeUserFromCompany/${companyId}/${userId}`).pipe(catchError(err=>{throw err}));
   }
 
-  updateCompany(company:Company):Observable<any>{
+  updateCompany(company:LooseObject):Observable<any>{
     const options = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.put<any>('http://localhost:3030/companies/updateCompany',company,{ headers: options });
   }

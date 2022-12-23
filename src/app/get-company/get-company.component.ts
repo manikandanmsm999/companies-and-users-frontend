@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { CompaniesServiceService } from '../companies-service.service';
 import { Company } from '../Company';
 
@@ -14,7 +15,11 @@ export class GetCompanyComponent {
   onSearch:boolean=false;
   errMsg:string="";
 
-  constructor(private companyService:CompaniesServiceService){}
+  constructor(private router:Router,private companyService:CompaniesServiceService){}
+
+  gotoDisplayToCompany(companyId:string){
+    this.router.navigate(['/displayCompany',companyId]);
+  }
 
   getCompanyById(id:string){
     this.companyService.getCompanyById(id).subscribe(

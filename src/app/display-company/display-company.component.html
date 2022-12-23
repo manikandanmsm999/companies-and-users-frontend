@@ -1,5 +1,6 @@
 <h3 style="color: darkcyan;margin-top: 10px;margin-bottom: 10px;">View full details of the Company</h3>
-<div *ngIf="success; else thenBlock"class="center-display-company">
+<div *ngIf="success; else thenBlock" style="margin-left: 10px;margin-top: 20px;">
+    <hr>
     <h5><Strong>Company Id : </Strong>{{company.companyId==undefined?"Id is not mentioned":company.companyId}}</h5>
     <br>
     <hr>
@@ -12,15 +13,9 @@
     <h5><Strong>Coordinates : </Strong>Latitude : {{company.coordinates.latitude==undefined?"Latitude is not mentioned":company.coordinates.latitude}} || Longitude : {{company.coordinates.longitude==undefined?"Latitude is not mentioned":company.coordinates.longitude}}</h5>
     <br>
     <hr>
-    <google-map height="400px"
-            width="750px"
-            [center]="center"
-            [zoom]="zoom"
-            (mapClick)="moveMap($event)"
-            (mapMousemove)="move($event)">
+    <google-map height="600px" width="100%" [center]="center" [zoom]="zoom">
+        <map-marker [position]="center" [options]="markerOptions"></map-marker>
     </google-map>
-    <div>Latitude: {{display?.lat}}</div>
-    <div>Longitude: {{display?.lng}}</div>
 
 </div>
 

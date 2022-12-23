@@ -12,17 +12,21 @@
           <input type="text" #address="ngModel" required class="form-control" [class.is-invalid]="address.invalid && address.touched" name="address" [(ngModel)]="company.companyAddress" placeholder="Enter Address" style="width: 800px;">
         </div>
         <br>
-        <div class="form-group">
-          <label>Coordinates</label>
-          <input type="text" #latitude="ngModel" required class="form-control" [class.is-invalid]="latitude.invalid && latitude.touched" name="latitude" [(ngModel)]="lat" placeholder="Latitude" style="width: 800px;">
-          <br>
-          <input type="text" #longitude="ngModel" required class="form-control" [class.is-invalid]="longitude.invalid && longitude.touched" name="latitude" [(ngModel)]="lon" placeholder="Longitude" style="width: 800px;">
-          <p *ngIf="checkNaN" style="color: red;">Please enter digits</p>
+        <div>
+          <label>Use these buttons to view/hide Map and to select Coordinates </label>
+          <button class="btn btn-success" style="margin-right:10px;margin-left: 10px;" (click)="showMap()" type="button">View Map</button>
+          <button class="btn btn-danger" style="margin-left:10px" (click)="hideMap()" type="button">Hide Map</button>
         </div>
         <br>
-        <button class="btn btn-primary" [disabled]="companyForm.form.invalid" type="submit">Create Company</button>
-    
+        <button class="btn btn-primary" [disabled]="companyForm.form.invalid " type="submit">Create Company</button>
+        <br>
       </form>
+</div>
+
+<div *ngIf="map" style="margin-left: 10px;">
+  <google-map height="400px" width="800px" [center]="center" [zoom]="zoom" (mapClick)="captureClick($event)">
+    <map-marker [position]="center" [options]="markerOptions"></map-marker>
+  </google-map>
 </div>
 
 

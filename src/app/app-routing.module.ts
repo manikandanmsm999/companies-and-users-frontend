@@ -18,6 +18,7 @@ import { DeactivateUserComponent } from './deactivate-user/deactivate-user.compo
 import { RemoveUserFromCompanyComponent } from './remove-user-from-company/remove-user-from-company.component';
 import { DeleteCompanyComponent } from './delete-company/delete-company.component';
 import { DisplayCompanyComponent } from './display-company/display-company.component';
+import { UpdateCompanyComponent } from './update-company/update-company.component';
 
 const routes: Routes = [
   {path:'home',component:HomeComponent},
@@ -37,6 +38,7 @@ const routes: Routes = [
   {path:'removeUserFromCompany',component:RemoveUserFromCompanyComponent},
   {path:'deleteCompany',component:DeleteCompanyComponent},
   {path:'displayCompany/:companyId',component:DisplayCompanyComponent},
+  {path:'updateCompany',component:UpdateCompanyComponent},
   {path:'**',component:PageNotFoundComponent}
 ];
 

@@ -34,5 +34,9 @@ export class CompaniesManagementComponent {
   gotoDeleteCompany(){
     this.router.navigate(['/','deleteCompany']);
   }
+
+  gotoUpdateCompany(){
+    this.router.navigate(['/','updateCompany'])
+  }
   
 }
