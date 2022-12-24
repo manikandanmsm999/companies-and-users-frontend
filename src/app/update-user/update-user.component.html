@@ -1,12 +1,13 @@
 <h3 style="color: darkcyan;margin-top: 10px;margin-bottom: 10px;">Use the below form to update User</h3>
 <div style="padding: 10px;" class="container-fluid">
     <form #userForm="ngForm" (ngSubmit)="updateUser()">
-    
+        <h5 style="color: darkcyan;margin-top: 10px;margin-bottom: 10px;">Enter the User Id which is to be updated</h5>
         <div class="form-group">
             <label>User Id</label>
             <input type="text" #id="ngModel" required class="form-control" [class.is-invalid]="id.invalid && id.touched" name="id" [(ngModel)]="user.userId" placeholder="Enter User Id" style="width: 800px;">
         </div>
         <br>
+        <h5 style="color: darkcyan;margin-top: 10px;margin-bottom: 10px;">Enter only the updated values</h5>
         
         <div class="form-group">
           <label>First Name</label>

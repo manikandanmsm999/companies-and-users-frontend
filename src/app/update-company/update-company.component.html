@@ -1,12 +1,13 @@
 <h3 style="color: darkcyan;margin-top: 10px;margin-bottom: 10px;">Use the below form to update Company</h3>
 <div style="padding: 10px;" class="container-fluid">
     <form #companyForm="ngForm" (ngSubmit)="updateCompany()">
-    
+        <h5 style="color: darkcyan;margin-top: 10px;margin-bottom: 10px;">Enter the Company Id which is to be updated</h5>
         <div class="form-group">
             <label>Company Id : </label>
             <input type="text" #id="ngModel" required class="form-control" [class.is-invalid]="id.invalid && id.touched" name="id" [(ngModel)]="company.companyId" placeholder="Enter Id" style="width: 800px;">
         </div>
         <br>
+        <h5 style="color: darkcyan;margin-top: 10px;margin-bottom: 10px;">Enter only the updated values</h5>
         <div class="form-group">
           <label>Company Name : </label>
           <input type="text" #name="ngModel" class="form-control" [class.is-invalid]="name.invalid && name.touched" name="name" [(ngModel)]="company.companyName" placeholder="Enter Name" style="width: 800px;">

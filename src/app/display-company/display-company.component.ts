@@ -14,7 +14,7 @@ export class DisplayCompanyComponent {
 
   display : any;
   center: google.maps.LatLngLiteral = {lat: 0, lng: 0};
-  zoom = 2;
+  zoom = 6;
   markerOptions: google.maps.MarkerOptions = {draggable: false};
 
   constructor(private router:ActivatedRoute,private companyService:CompaniesServiceService){}

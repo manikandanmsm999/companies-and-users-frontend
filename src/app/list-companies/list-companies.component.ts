@@ -24,7 +24,6 @@ export class ListCompaniesComponent {
         this.companies=companies;
         if(this.companies==null || this.companies==undefined){
           this.hasData=false;
-          console.log("hi1");
         }else{
           for(let company in this.companies){
             this.count+=1;
