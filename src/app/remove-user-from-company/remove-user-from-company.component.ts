@@ -20,9 +20,16 @@ export class RemoveUserFromCompanyComponent {
     this.companyService.removeUserFromCompany(this.companyAndUser.companyId,this.companyAndUser.userId).subscribe(
       (data:any)=>
       {
-        this.succMsg=data.message;
-        this.onSearch=true;
-        this.added=true;
+        if(data.message=="Mentioned userId is not mapped to the mentioned companyId"){
+          this.errMsg=data.message;
+          this.onSearch=true;
+          this.added=false;
+        }
+        else{
+          this.succMsg=data.message;
+          this.onSearch=true;
+          this.added=true;
+        }
       },
       (err)=>{
         this.errMsg=err.error.message;

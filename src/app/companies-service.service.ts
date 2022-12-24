@@ -37,12 +37,12 @@ export class CompaniesServiceService {
 
   updateCompany(company:LooseObject):Observable<any>{
     const options = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.put<any>('http://localhost:3030/companies/updateCompany',company,{ headers: options });
+    return this.http.put<any>('http://localhost:3030/companies/updateCompany',company,{ headers: options }).pipe(catchError(err=>{throw err}));
   }
 
   deleteCompany(id:string):Observable<any>{
     const options = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.delete<any>(`http://localhost:3030/companies/deleteCompany/${id}`);
+    return this.http.delete<any>(`http://localhost:3030/companies/deleteCompany/${id}`).pipe(catchError(err=>{throw err}));
   }
-
+  
 }

@@ -4,6 +4,7 @@ import { Company } from '../Company';
 import { Coordinates } from '../Coordinates';
 import { LooseCoordinates } from '../LooseCoordinates';
 import { LooseObject } from '../LooseObject';
+import { MapServiceService } from '../map-service.service';
 
 @Component({
   selector: 'app-update-company',
@@ -19,29 +20,9 @@ export class UpdateCompanyComponent {
   onSearch:boolean=false;
   errMsg:string="";
   succMsg:string="";
-  map:boolean=false;
-  display : any;
-  center: google.maps.LatLngLiteral = {lat: 14.0048, lng: 77.9110};
-  zoom = 2;
-  markerOptions: google.maps.MarkerOptions = {draggable: false};
+  addressStatus:boolean =false;
 
-  constructor(private companyService:CompaniesServiceService){}
-
-  showMap(){
-    this.map=true;
-  }
-
-  hideMap(){
-    this.map=false;
-  }
-
-  captureClick(event: google.maps.MapMouseEvent){
-    if(event.latLng!= null){
-      this.center = (event.latLng.toJSON());
-      this.company.coordinates.latitude=this.center.lat;
-      this.company.coordinates.longitude=this.center.lng;
-    }
-  }
+  constructor(private companyService:CompaniesServiceService, private mapService:MapServiceService){}
 
   updateCompany(){
     this.sendingObj['companyId']=this.company.companyId;
@@ -54,32 +35,47 @@ export class UpdateCompanyComponent {
 
     if(this.company.companyAddress==""){
       this.sendingObj['companyAddress']=null;
+      this.companyService.updateCompany(this.sendingObj).subscribe(
+        (data:any)=>{
+          this.succMsg=data.message;
+          this.onSearch=true;
+          this.success=true;
+        },
+        (err)=>{
+          this.errMsg=err.error.message;
+          this.onSearch=true;
+          this.success=false;
+        }
+      )
     }
     else{
       this.sendingObj['companyAddress']=this.company.companyAddress;
+      this.mapService.getCoordinates(this.company.companyAddress).subscribe(
+        (map:any)=>{
+          if(map.address!="none"){
+            this.addressStatus=false;
+            this.company.coordinates.latitude=map.coordinates.latitude;
+            this.company.coordinates.longitude=map.coordinates.longitude;
+            this.companyService.updateCompany(this.company).subscribe(
+              (data:any)=>{
+                this.succMsg=data.message;
+                this.onSearch=true;
+                this.success=true;
+              },
+              (err)=>{
+                this.errMsg=err.error.message;
+                this.onSearch=true;
+                this.success=false;
+              }
+            )
+          }
+          else{
+            this.addressStatus=true;
+            this.onSearch=false;
+            this.success=false;
+          }
+        }
+      )
     }
-
-    if(this.company.coordinates.longitude==400 || this.company.coordinates.latitude==400){
-      this.senderCoordinates['latitude']=null;
-      this.senderCoordinates['longitude']=null;
-      this.sendingObj['coordinates']=this.senderCoordinates;
-    }
-    else{
-      this.senderCoordinates['latitude']=this.company.coordinates.latitude;
-      this.senderCoordinates['longitude']=this.company.coordinates.longitude;
-      this.sendingObj['coordinates']=this.senderCoordinates;
-    }
-    this.companyService.updateCompany(this.sendingObj).subscribe(
-      (data:any)=>{
-        this.succMsg=data.message;
-        this.onSearch=true;
-        this.success=true;
-      },
-      (err)=>{
-        this.errMsg=err.error.message;
-        this.onSearch=true;
-        this.success=false;
-      }
-    )
   }
 }

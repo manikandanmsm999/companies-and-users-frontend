@@ -15,23 +15,12 @@
         <div class="form-group">
           <label>Company Address</label>
           <input type="text" #address="ngModel" class="form-control" [class.is-invalid]="address.invalid && address.touched" name="address" [(ngModel)]="company.companyAddress" placeholder="Enter Address" style="width: 800px;">
-        </div>
-        <br>
-        <div>
-          <label>Use these buttons to view/hide Map and to select Coordinates </label>
-          <button class="btn btn-success" style="margin-right:10px;margin-left: 10px;" (click)="showMap()" type="button">View Map</button>
-          <button class="btn btn-danger" style="margin-left:10px" (click)="hideMap()" type="button">Hide Map</button>
+          <p *ngIf="addressStatus" style="color: red;">Please enter valid address</p>
         </div>
         <br>
         <button class="btn btn-primary" [disabled]="companyForm.form.invalid" type="submit">Update Company</button>
         <br>
       </form>
-</div>
-
-<div *ngIf="map" style="margin-left: 10px;">
-  <google-map height="400px" width="800px" [center]="center" [zoom]="zoom" (mapClick)="captureClick($event)">
-    <map-marker [position]="center" [options]="markerOptions"></map-marker>
-  </google-map>
 </div>
 
 <div *ngIf="success;else thenBlock" style="margin-top: 10px;margin-left: 10px;color: green;">

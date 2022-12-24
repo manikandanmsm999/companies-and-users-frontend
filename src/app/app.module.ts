@@ -27,6 +27,7 @@ import { DeleteUserComponent } from './delete-user/delete-user.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { DeactivateUserComponent } from './deactivate-user/deactivate-user.component';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { MapServiceService } from './map-service.service';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
     FormsModule,
     GoogleMapsModule
   ],
-  providers: [CompaniesServiceService,UsersServiceService],
+  providers: [CompaniesServiceService,UsersServiceService,MapServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

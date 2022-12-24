@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { isNumber } from '@ng-bootstrap/ng-bootstrap/util/util';
 import { CompaniesServiceService } from '../companies-service.service';
 import { Company } from '../Company';
 import { Coordinates } from '../Coordinates';
+import { MapServiceService } from '../map-service.service';
 
 @Component({
   selector: 'app-create-company',
@@ -16,42 +16,35 @@ export class CreateCompanyComponent {
   onSearch:boolean=false;
   errMsg:string="";
   succMsg:string="";
-  map:boolean=false;
-  display : any;
-  center: google.maps.LatLngLiteral = {lat: this.company.coordinates.latitude, lng: this.company.coordinates.longitude};
-  zoom = 2;
-  markerOptions: google.maps.MarkerOptions = {draggable: false};
+  addressStatus:boolean =false;
 
-
-  constructor(private companyService:CompaniesServiceService){}
-
-  showMap(){
-    this.map=true;
-  }
-
-  hideMap(){
-    this.map=false;
-  }
-
-  captureClick(event: google.maps.MapMouseEvent){
-    if(event.latLng!= null){
-      this.center = (event.latLng.toJSON());
-      this.company.coordinates.latitude=this.center.lat;
-      this.company.coordinates.longitude=this.center.lng;
-    }
-  }
+  constructor(private companyService:CompaniesServiceService, private mapService:MapServiceService){}
 
   createCompany(){
-    this.companyService.createCompany(this.company).subscribe(
-      (data:any)=>{
-        this.succMsg=data.message;
-        this.onSearch=true;
-        this.success=true;
-      },
-      (err)=>{
-        this.errMsg=err.error.message;
-        this.onSearch=true;
-        this.success=false;
+    this.mapService.getCoordinates(this.company.companyAddress).subscribe(
+      (map:any)=>{
+        if(map.address!="none"){
+          this.addressStatus=false;
+          this.company.coordinates.latitude=map.coordinates.latitude;
+          this.company.coordinates.longitude=map.coordinates.longitude;
+          this.companyService.createCompany(this.company).subscribe(
+            (data:any)=>{
+              this.succMsg=data.message;
+              this.onSearch=true;
+              this.success=true;
+            },
+            (err)=>{
+              this.errMsg=err.error.message;
+              this.onSearch=true;
+              this.success=false;
+            }
+          )
+        }
+        else{
+          this.addressStatus=true;
+          this.onSearch=false;
+          this.success=false;
+        }
       }
     )
   }
